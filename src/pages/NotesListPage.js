@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
+import ListItem from "../components/ListItem";
 
 const NotesListPage = () => {
     let [notes, setNotes] =useState([])
@@ -23,7 +24,7 @@ const NotesListPage = () => {
                 {
                     notes.map(
                         (note, index)=> (
-                            <h3 key = {index}> Body = {note.body} </h3>
+                            <ListItem key = {index} note = {note}/>
                             // Keys help React identify which items have changed, are added, or are removed
                         )
 
