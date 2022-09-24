@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ListItem from "../components/ListItem";
+import AddButton from "../components/AddButton";
 
 const NotesListPage = () => {
-    let [notes, setNotes] =useState([])
+    let [notes, setNotes] = useState([])
+
     // initial state of owr app 
     useEffect(()=>{
         getNotes()
@@ -22,21 +23,19 @@ const NotesListPage = () => {
 
             <div className="notes-header">
                 <h2 className="notes-title">&#9782; Notes</h2>
-                <p className="notes-count">{notes.length}</p>
+                <p className="notes-count">{notes.length}</p>                
             </div>
-            <div className="notes-lits">
+            <div className="notes-list">
                 {
                     notes.map(
                         (note, index)=> (
                             <ListItem key = {index} note = {note}/>
                             // Keys help React identify which items have changed, are added, or are removed
                         )
-
-
                     )
                 }
-
             </div>
+            <AddButton/>
         </div>
     )
 }
